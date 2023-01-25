@@ -1,11 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import RiskTolerance from './home';
+import Homescreen from './Homescreen';
+import { useFonts } from 'expo-font'
 export default function App() {
+
+  let [fontsLoaded] = useFonts({
+    'Montserat': require('./assets/fonts/Montserrat-Regular.ttf'),
+  });
+
+  if(!fontsLoaded){
+      return null
+    }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    {/* <RiskTolerance /> */}
+    <Homescreen />
+      
+      <StatusBar style='light' translucent={true} />
     </View>
   );
 }
@@ -13,8 +26,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   
+    
   },
 });
